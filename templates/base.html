@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+	<style>
+	<!--Button styling-->
+		
+	.button:hover{
+			box-shadow: 0 10px 10px 0 rgba(0,255,0,0.1), 0 10px 10px 0 rgba(0,255,0,0.1);
+	}12 16 17 50
+	.container {
+			height: 600px;
+			position: relative;
+			border: 3px solid green;
+		}
+	.center {
+			margin: 0;
+			position: absolute;
+			top: 95%;
+			left: 50%;
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+	.center1 {
+			margin: 0;
+			position: absolute;
+			top: 5%;
+			left: 50%;
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+	<!--Image styling-->
+	.prediction-area{
+		position: relative;
+		display: flex;
+		justify-content: space-evenly;
+		padding: 20px 40px;
+		
+	}
+	
+	.movie-banner-left{
+		display: inline-block;
+		position: absolute;
+		left: 40px;
+		top: 150px;
+		width: 284px;
+		height: 420px;
+		border-radius: 15px;
+		-webkit-box-shadow: 7px 6px 18px -2px rgba(94,94,94,0.61);
+		-moz-box-shadow: 7px 6px 18px -2px rgba(94,94,94,0.61);
+		box-shadow: 7px 6px 18px -2px rgba(94,94,94,0.61);
+	}
+	
+	.slider-frame{
+		width: 100%;
+		height: 100%;
+		border-radius: 15px;
+		overflow: hidden;
+	}
+	
+	.slide-images-up{
+		width: 100%;
+		height: 100%;
+		position: relative;
+		animation-name: slide-animation-up;
+		animation-duration: 50s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-timing-function: ease-out;
+	}
+	
+	.image-width{
+		height: 429px;
+	}
+	
+	.image-container{
+		position: relative;
+		float: none;
+	}
+	
+	.slide-images-down{
+		width: 100%;
+		height: 100%;
+		position: relative;
+		animation-name: slide-animation-down;
+		animation-duration: 50s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-timing-function: ease-out;
+	}
+	
+	@keyframes slide-animation-up{
+		0% {top: 0;}
+		6% {top: -433px;}
+		12% {top: -866px;}
+		18% {top: -1299px;}
+		24% {top: -1732px;}
+		30% {top: -2165px;}
+		36% {top: -2598px;}
+		42% {top: -3031px;}
+		50% {top: -3031px;}
+		56% {top: -3031px;}
+		62% {top: -2598px;}
+		68% {top: -2165px;}
+		74% {top: -1732px;}
+		80% {top: -1299px;}
+		86% {top: -866px;}
+		92% {top: -433px;}
+		100% {top: 0;}
+	}
+
+	@keyframes slide-animation-down{
+		0% {bottom: 3031px;}
+		6% {bottom: 2598px;}
+		12% {bottom: 2165px;}
+		18% {bottom: 1732px;}
+		24% {bottom: 1299px;}
+		30% {bottom: 866px;}
+		36% {bottom: 433px;}
+		42% {bottom: 0;}
+		50% {bottom: 0;}
+		56% {bottom: 0;}
+		62% {bottom: 433px;}
+		68% {bottom: 866px;}
+		74% {bottom: 1299px;}
+		80% {bottom: 1732px;}
+		86% {bottom: 2165px;}
+		92% {bottom: 2598px;}
+		100% {bottom: 3031px;}
+	}
+	
+	.movie-banner-right{
+		display: inline-block;
+		width: 284px;
+		height: 420px;
+		position: absolute;
+		right: 40px;
+		top: 150px;
+		border-radius: 15px;
+		-webkit-box-shadow: 7px 6px 18px -2px rgba(94,94,94,0.61);
+		-moz-box-shadow: 7px 6px 18px -2px rgba(94,94,94,0.61);
+		box-shadow: 7px 6px 18px -2px rgba(94,94,94,0.61);
+	}
+	
+	
+	</style>
+    <meta charset="utf-8">
+    <title>Movie Recommender</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </head>
+  <body style="background-image: url(https://images.unsplash.com/photo-1573901715464-3abada6ceed0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80); background-repeat: no-repeat;
+  background-size: cover;">
+    <div class="container">
+    <nav class="center1">
+      <h3><a class="button center1" style="font-family: Verdana; background-color: #86C232; border: none;
+											color: white; padding: 15px 32px; text-align: center;
+											text-decoration: none; display: inline-block; font-size: 16px;
+										border-radius: 4px;" href="{{url_for('home')}}">Home</a></h3>
+    </nav>
+	
+	<div class="prediction-area" style="border-top:20px";>
+
+            <!-- Movie Banner - 1 -->
+            <div class='movie-banner-left'>
+
+                <div class="slider-frame">
+                    <div class="slide-images-up">
+
+                        <!-- Image-1 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/30/aa/7c/30aa7c285fe9e25a74f7071d4b5755eb.jpg" alt="Titanic">
+                        </div>
+                        <!-- Image-2 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/0b/47/52/0b475243e0f2612c5ad6485dfc214b3e.jpg" alt="Avatar">
+                        </div>
+                        <!-- Image-3 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/d5/06/05/d50605d85b711c1eae5dd42c6ac65d9f.jpg" alt="2012">
+                        </div>
+                        <!-- Image-4 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/0b/8a/f0/0b8af0bd7c4e3057d03301ef6d37fd51.jpg" alt="The Fast and the Furious">
+                        </div>
+                        <!-- Image-5 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/ca/f3/e7/caf3e7354a6b15a439c73ad2862e70a5.jpg" alt="Pirates of the Carribean">
+                        </div>
+                        <!-- Image-6 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/96/32/44/9632449dda7c539825fcf961ea76fb5b.jpg" alt="Life of Pi">
+                        </div>
+                        <!-- Image-7 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/d1/ec/3a/d1ec3a57500b0f9ae0726052e937026f.jpg" alt="The Martian">
+                        </div>
+                        <!-- Image-8 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/3a/5d/a1/3a5da1beb394eb0cf1f9122201a79248.jpg" alt="Despicable Me">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+			
+			
+		<!-- Movie Banner - 2 -->
+            <div class='movie-banner-right'>
+
+                <div class="slider-frame">
+                    <div class="slide-images-down">
+
+                        <!-- Image-1 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/8d/53/d8/8d53d82cf63f97e3119569978cc8d860.jpg" alt="Iron Man">
+                        </div>
+                        <!-- Image-2 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/11/28/f4/1128f459e34e4b2c7984834b9941f3af.jpg" alt="Lucy">
+                        </div>
+                        <!-- Image-3 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/6e/17/34/6e17349215b8a7e1cd901e1fea25bea8.jpg" alt="Harry Potter">
+                        </div>
+                        <!-- Image-4 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/c0/45/e6/c045e6b01d70f0f6d4c7b89c9cffb9e7.jpg" alt="Jaws">
+                        </div>
+                        <!-- Image-5 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/76/23/65/76236595396aa1f5bf929d8c8da78bfb.jpg" alt="Spider Man">
+                        </div>
+                        <!-- Image-6 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/58/5c/26/585c2670a47802919dc998fde825bcf6.jpg" alt="The Chronicles of Narnia">
+                        </div>
+                        <!-- Image-7 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/72/68/69/7268691572440a12af231ca8fc501416.jpg" alt="Die Hard">
+                        </div>
+                        <!-- Image-8 -->
+                        <div class="image-container">
+                            <img class="image-width" src="https://i.pinimg.com/564x/0a/be/4f/0abe4fdc21ee5b6daadaa12808fc495d.jpg" alt="Kung Fu Panda">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+      <div class="jumbotron" style="background-color:#222629">
+        {% block content %}
+        {% endblock %}
+      </div>
+	  
+	  <div class="container">
+		<div class="center">
+		<a class="button" style="font-family: Verdana; background-color: #86C232; border: none;
+											color: white; padding: 15px 32px; text-align: center;
+											text-decoration: none; display: inline-block; font-size: 16px;
+										border-radius: 4px;" href="{{url_for('csvtohtml')}}">Movie List</a>
+		<a class="button" style="font-family: Verdana; background-color: #86C232; border: none;
+											color: white; padding: 15px 32px; text-align: center;
+											text-decoration: none; display: inline-block; font-size: 16px;
+										border-radius: 4px;"href="{{url_for('about')}}">About</a>
+		</div>
+	  </div>
+
+    <!--<div class="card mb-3" style="max-width: 650px;">
+      <div class="row no-gutters">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">This project is developed by Sinchana and Trupthi</h5>
+            <p class="card-text"><h6>As the name suggests, Recommendation System is a piece of software that recommends us some
+ products or services. Recommender system is used immensely in Today's world , from Amazon.com ,
+ Netflix to Google search and many other systems use this as a service.
+ 
+ <br><br><br>
+ Here, we use a simple movie recommendation system. You can input movies which were released on or before 2016.
+ The dataset used is not very vast. 
+You can try inputs like Avatar, Spectre, Iron Man,etc. and then you'll get a list
+ of recommedations that you might enjoy watching!!!</h6>  </p>
+            <p>Click the link below to view my github code!</p>
+            <a href="https://github.com/ShivamKumar-bit/MVRS" class="btn btn-primary" target="_blank">Github</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>-->
+  </body>
+</html>
